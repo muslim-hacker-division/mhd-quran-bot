@@ -1,0 +1,27 @@
+name: MHD Auto Quran Subuh
+
+on:
+  schedule:
+    # 21:00 UTC = 04:00 WIB
+    - cron: '0 21 * * *'
+  workflow_dispatch: # Tombol buat tes manual
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run bot
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: python bot_quran.py
