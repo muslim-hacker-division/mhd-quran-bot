@@ -1,10 +1,10 @@
+import os
 import telebot
 import requests
 import random
-import time
 
-# --- KONFIGURASI ---
-TOKEN = '8563427312:AAF9UqNpIkIsrCA0XpiG6llUdEnfUhiOUac'
+# --- KONFIGURASI SAFE ---
+TOKEN = os.getenv('BOT_TOKEN') # Kunci rahasianya
 CHANNEL_ID = '@autoposting_quran'
 bot = telebot.TeleBot(TOKEN)
 
@@ -60,5 +60,13 @@ def kirim_ke_channel(message):
 
 if __name__ == "__main__":
     print("\033[92m[ MHD VIRTUAL WARRIOR ONLINE ]\033[0m")
-    bot.remove_webhook()
-    bot.infinity_polling()
+    
+    # Ambil ayat acak
+    data_ayat = get_random_quran()
+    
+    if data_ayat:
+        # Kirim ke channel
+        bot.send_message(CHANNEL_ID, data_ayat['teks'], parse_mode='HTML')
+        print(">>> Misi Sukses: Ayat sudah mendarat di channel!")
+    else:
+        print(">>> Misi Gagal: Gagal ambil data dari API.")
