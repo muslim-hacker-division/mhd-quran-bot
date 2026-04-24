@@ -36,28 +36,7 @@ def get_random_quran():
     except Exception as e:
         print(f"Error API: {e}")
         return None
-
-# --- HANDLER: /start ---
-@bot.message_handler(commands=['start'])
-def sapa_user(message):
-    salam = (
-        "<b>[ ACCESS GRANTED ]</b>\n\n"
-        "Assalamu'alaikum, bross! 🛡️\n"
-        "Bot MHD Aktif. Ketik /kirim buat tes kirim ayat acak ke channel @autoposting_quran."
-    )
-    bot.reply_to(message, salam, parse_mode='HTML')
-
-# --- COMMAND KHUSUS ADMIN: /kirim ---
-@bot.message_handler(commands=['kirim'])
-def kirim_ke_channel(message):
-    print(">>> Menjalankan perintah kirim ayat acak...")
-    data_quran = get_random_quran()
-    if data_quran:
-        bot.send_message(CHANNEL_ID, data_quran['teks'], parse_mode='HTML')
-        bot.reply_to(message, "✅ Berhasil kirim ayat acak ke channel!")
-    else:
-        bot.reply_to(message, "❌ Gagal mengambil data API.")
-
+        
 if __name__ == "__main__":
     print("\033[92m[ MHD VIRTUAL WARRIOR ONLINE ]\033[0m")
     
