@@ -25,7 +25,7 @@
 - **API:** Al-Quran Cloud API
 
 ### 📡 Markas Digital
-Bergabunglah dengan jaringan kami untuk mendapatkan asupan ayat harian langsung di perangkat Anda:
+Bergabunglah dengan jaringan kami untuk mendapatkan logistik iman harian langsung di perangkat Anda:
 
 <p align="center">
   <a href="https://t.me/autoposting_quran">
