@@ -2,8 +2,11 @@ name: MHD Auto Quran Subuh
 
 on:
   schedule:
-    # 21:00 UTC = 04:00 WIB
-    - cron: '0 21 * * *'
+    # 21:00 UTC = 04:00 WIB (Subuh)
+    # 05:00 UTC = 12:00 WIB (Dzuhur)
+    # 12:30 UTC = 19:30 WIB (Isya')
+    - cron: '0 21,5 * * *'
+    - cron: '30 12 * * *'
   workflow_dispatch: # Tombol buat tes manual
 
 jobs:
