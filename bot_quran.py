@@ -2,50 +2,58 @@ import os
 import telebot
 import requests
 import random
+from datetime import datetime
 
-# --- KONFIGURASI SAFE ---
-TOKEN = os.getenv('BOT_TOKEN') # Kunci rahasianya
+# --- KONFIGURASI ---
+TOKEN = os.getenv('BOT_TOKEN')
 CHANNEL_ID = '@autoposting_quran'
+BOT_USERNAME = 'mhd_pengingat_bot' 
 bot = telebot.TeleBot(TOKEN)
 
-# --- FUNGSI AMBIL AYAT ACAK (API QURAN) ---
-def get_random_quran():
+def get_content():
     try:
-        # Ambil nomor ayat acak antara 1 sampai 6236
-        ayat_id = random.randint(1, 6236)
-        # Pakai API alquran.cloud (stabil & gratis)
-        url = f"https://api.alquran.cloud/v1/ayah/{ayat_id}/editions/quran-uthmani,id.indonesian"
+        # Cek hari (4 = Jumat)
+        hari_ini = datetime.now().weekday()
+        
+        if hari_ini == 4:
+            # Mode Jumat: Al-Kahfi
+            ayat_id = random.randint(1, 10)
+            url = f"https://api.alquran.cloud/v1/ayah/18:{ayat_id}/editions/quran-uthmani,id.indonesian"
+            prefix = "📖 <b>[ JUMAT BERKAH - AL-KAHFI ]</b>"
+        else:
+            # Mode Biasa: Ayat Acak
+            ayat_id = random.randint(1, 6236)
+            url = f"https://api.alquran.cloud/v1/ayah/{ayat_id}/editions/quran-uthmani,id.indonesian"
+            prefix = "📖 <b>[ MHD DAILY QURAN ]</b>"
         
         response = requests.get(url)
         data = response.json()
         
         if data['code'] == 200:
             arab = data['data'][0]['text']
-            indo = data['data'][1]['text']
+            arti = data['data'][1]['text']
             surah = data['data'][0]['surah']['englishName']
-            no_surah = data['data'][0]['surah']['number']
-            no_ayat = data['data'][0]['numberInSurah']
+            nomor = data['data'][0]['numberInSurah']
             
-            return {
-                "teks": f"<b>[ MHD DAILY QURAN ]</b>\n\n"
-                        f"<code>{arab}</code>\n\n"
-                        f"<i>\"{indo}\"</i>\n\n"
-                        f"📌 <b>QS. {surah} [{no_surah}:{no_ayat}]</b>\n"
-                        f"🛡️ @autoposting_quran"
-            }
+            pesan = (
+                f"{prefix}\n\n"
+                f"<i>{arab}</i>\n\n"
+                f"\"{arti}\"\n\n"
+                f"📌 <b>QS. {surah} [{nomor}]</b>\n\n"
+                f"📡 <b>Channel:</b> @autoposting_quran\n"
+                f"🤖 <b>Bot Admin:</b> @{BOT_USERNAME}"
+            )
+            return pesan
     except Exception as e:
-        print(f"Error API: {e}")
-        return None
-        
+        print(f"Error: {e}")
+    return None
+
 if __name__ == "__main__":
     print("\033[92m[ MHD VIRTUAL WARRIOR ONLINE ]\033[0m")
     
-    # Ambil ayat acak
-    data_ayat = get_random_quran()
-    
-    if data_ayat:
-        # Kirim ke channel
-        bot.send_message(CHANNEL_ID, data_ayat['teks'], parse_mode='HTML')
-        print(">>> Misi Sukses: Ayat sudah mendarat di channel!")
+    ayat = get_content()
+    if ayat:
+        bot.send_message(CHANNEL_ID, ayat, parse_mode='HTML')
+        print(">>> Misi Berhasil: Pesan mendarat di channel.")
     else:
-        print(">>> Misi Gagal: Gagal ambil data dari API.")
+        print(">>> Misi Gagal.")
