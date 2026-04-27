@@ -9,7 +9,7 @@ TOKEN = os.getenv('BOT_TOKEN')
 CHANNEL_ID = '@autoposting_quran'
 BOT_USERNAME = 'mhd_pengingat_bot' 
 # TEMPEL LINK
-URL_MAKE = "https://hook.eu1.make.com/axcktk1unaivmplckeefsgp65v5dtjb9"
+URL_MAKE = os.getenv('MAKE_WEBHOOK_URL')
 
 bot = telebot.TeleBot(TOKEN)
 
