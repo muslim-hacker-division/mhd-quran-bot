@@ -8,6 +8,9 @@ from datetime import datetime
 TOKEN = os.getenv('BOT_TOKEN')
 CHANNEL_ID = '@autoposting_quran'
 BOT_USERNAME = 'mhd_pengingat_bot' 
+# TEMPEL LINK
+URL_MAKE = "https://hook.eu1.make.com/axcktk1unaivmplckeefsgp65v5dtjb9"
+
 bot = telebot.TeleBot(TOKEN)
 
 def get_content():
@@ -53,7 +56,17 @@ if __name__ == "__main__":
     
     ayat = get_content()
     if ayat:
+        # 1. KIRIM KE TELEGRAM (JALUR LAMA)
         bot.send_message(CHANNEL_ID, ayat, parse_mode='HTML')
-        print(">>> Misi Berhasil: Pesan mendarat di channel.")
+        
+        # 2. KIRIM KE MAKE.COM (UNTUK FACEBOOK & TELEGRAM BARU)
+        try:
+            # Kita kirim variabel 'ayat' ke Webhook dengan nama field 'text'
+            res = requests.post(URL_MAKE, json={"text": ayat})
+            print(f">>> Status Webhook: {res.status_code}")
+        except Exception as e:
+            print(f">>> Gagal kirim ke Webhook: {e}")
+
+        print(">>> Misi Berhasil: Pesan mendarat di target.")
     else:
         print(">>> Misi Gagal.")
