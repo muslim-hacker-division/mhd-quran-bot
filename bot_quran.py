@@ -56,8 +56,8 @@ if __name__ == "__main__":
     
     ayat = get_content()
     if ayat:
-        # 1. KIRIM KE TELEGRAM (JALUR LAMA)
-        bot.send_message(CHANNEL_ID, ayat, parse_mode='HTML')
+        # JALUR LAMA nonaktifkan
+        # bot.send_message(CHANNEL_ID, ayat, parse_mode='HTML')
         
         # 2. KIRIM KE MAKE.COM (UNTUK FACEBOOK & TELEGRAM BARU)
         try:
