@@ -43,8 +43,9 @@ def get_content():
                 f"<i>{arab}</i>\n\n"
                 f"\"{arti}\"\n\n"
                 f"📌 <b>QS. {surah} [{nomor}]</b>\n\n"
-                f"📡 <b>Channel:</b> @autoposting_quran\n"
-                f"🤖 <b>Bot Admin:</b> @{BOT_USERNAME}"
+                f"📡 <b>Channel:</b> t.me/autoposting_quran\n"
+                f"🌐 <b>Page:</b> fb.com/RuntimeIman\n\n"
+                f"#AlQuran #SelfReminder #DailyVerse #RuntimeIman #MHDWarrior"
             )
             return pesan
     except Exception as e:
