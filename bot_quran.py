@@ -16,7 +16,7 @@ def get_content():
         hari_ini = datetime.now().weekday()
         
         if hari_ini == 4:
-            # Mode Jumat: Al-Kahfi (Ayat 1-10)
+            # Mode Jumat: Al-Kahfi (Ayat 1-110)
             ayat_id = random.randint(1, 110)
             url = f"https://api.alquran.cloud/v1/ayah/18:{ayat_id}/editions/quran-uthmani,id.indonesian"
             prefix = "📖 <b>[ JUMAT BERKAH - AL-KAHFI ]</b>"
