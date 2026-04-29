@@ -1,43 +1,41 @@
-# 🛡️ SUBUH BERSAMA AL-QUR'AN | MHD
+📖 MHD Auto Quran Bot
+MHD Auto Quran Bot adalah sistem otomasi pengingat ayat Al-Quran berbasis serverless yang berjalan di atas infrastruktur GitHub Actions[cite: 1]. Bot ini dirancang untuk menyebarkan pesan inspiratif secara terjadwal ke berbagai platform media sosial secara otomatis[cite: 1].
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge&logo=github-actions" alt="Status">
-  <img src="https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python" alt="Python">
-  <img src="https://img.shields.io/badge/Focus-Dakwah%20Digital-green?style=for-the-badge" alt="Focus">
-</p>
+🚀 Fitur Utama
+Automated Scheduling: Penjadwalan posting 3x sehari (Subuh, Siang, Malam) tanpa intervensi manual[cite: 1].
 
----
+Friday Special Logic: Sistem otomatis mendeteksi hari Jumat untuk membagikan ayat-ayat dari Surah Al-Kahfi[cite: 1].
 
-## [ ACCESS GRANTED ]
+Multi-Platform Broadcast: Distribusi konten secara simultan ke channel Telegram dan Facebook Pages melalui jalur enkripsi API[cite: 1].
 
-**MHD Auto Quran Subuh** adalah sebuah proyek otomasi dakwah dari **Muslim Hacker Division**. Bot ini dirancang untuk menyusupkan hidayah melalui jalur digital secara terjadwal.
+Dynamic Content Engine: Integrasi real-time dengan Al-Quran Cloud API untuk data yang akurat[cite: 1].
 
-### ⚡ Fitur Utama
-- **Automated Injection:** Mengirimkan ayat Al-Qur'an secara otomatis setiap jam 04:00 AM (WIB).
-- **Randomization Protocol:** Mengambil ayat secara acak dari Al-Quran Cloud API untuk memastikan variasi konten harian.
-- **Serverless Execution:** Berjalan sepenuhnya di atas **GitHub Actions**, tanpa perlu server fisik yang standby 24/7.
-- **Secure Token Management:** Menggunakan *GitHub Secrets* untuk enkripsi API Token.
+🛠️ Arsitektur Sistem
+Command Center (GitHub Actions): Bertindak sebagai otak yang memicu eksekusi kode sesuai parameter waktu yang ditentukan[cite: 1].
 
-### 🛠️ Tech Stack
-- **Language:** Python 3.x
-- **Framework:** `pyTelegramBotAPI`
-- **Automation:** GitHub Actions (Cron Job)
-- **API:** Al-Quran Cloud API
+Core Processor (Python): Script cerdas yang mengambil data, memproses teks, dan merakit paket informasi dalam format HTML[cite: 1].
 
-### 📡 Markas Digital
-Bergabunglah dengan jaringan kami untuk mendapatkan logistik iman harian langsung di perangkat Anda:
+Distribution Bridge: Jalur distribusi privat yang menjembatani server pemroses dengan API sosial media (Facebook & Telegram)[cite: 1].
 
-<p align="center">
-  <a href="https://t.me/autoposting_quran">
-    <img src="https://img.shields.io/badge/Telegram-Join%20Channel-blue?style=for-the-badge&logo=telegram" alt="Join Telegram">
-  </a>
-  <br>
-  <b>Link: <a href="https://t.me/autoposting_quran">@autoposting_quran</a></b>
-</p>
+📂 Struktur Repositori
+bot_quran.py: Script inti pemrosesan data dan logika distribusi[cite: 1].
 
----
+.github/workflows/main.yml: Konfigurasi trigger otomatisasi[cite: 1].
 
-### 🛡️ Mission Statement
-> "Kami tidak meretas sistem manusia, kami hanya mencoba menyambungkan kembali koneksi hati ke Sang Pencipta melalui barisan ayat-ayat suci."
+requirements.txt: Daftar dependensi sistem[cite: 1].
 
-**- Muslim Hacker Division -**
+⚙️ Konfigurasi Rahasia
+Fork repositori ini.
+
+Atur GitHub Secrets sebagai variabel lingkungan:
+
+BOT_TOKEN: Akses kredensial bot.
+
+MAKE_WEBHOOK_URL: Jalur distribusi privat (Bridge URL).
+
+Aktifkan GitHub Actions untuk memulai operasi[cite: 1].
+
+🛡️ Lisensi
+Proyek ini dilindungi oleh lisensi MIT[cite: 1]. Digunakan untuk tujuan edukasi dan penyebaran konten positif.
+
+Dibuat dengan semangat otomasi oleh Runtime Iman (MHD Warrior)[cite: 1].
