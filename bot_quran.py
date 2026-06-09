@@ -44,6 +44,7 @@ def get_content():
                 f"📌 <b>QS. {surah} [{nomor}]</b>\n\n"
                 f"📡 <b>Channel:</b> t.me/autoposting_quran\n"
                 f"🌐 <b>Page:</b> fb.com/RuntimeIman\n\n"
+                f"💻 <b>Account:</b> mastodon.social/@poster_pengingat\n\n"
                 f"#AlQuran #SelfReminder #DailyVerse #RuntimeIman #MHDWarrior"
             )
             return pesan
