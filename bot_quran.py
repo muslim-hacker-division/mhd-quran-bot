@@ -26,7 +26,6 @@ def get_content():
             url = f"https://api.alquran.cloud/v1/ayah/{ayat_id}/editions/quran-uthmani,id.indonesian"
             prefix = "📖 <b>[ MHD DAILY QURAN ]</b>"
         
-        # Tambahkan timeout 10 detik agar tidak hang jika API lambat
         response = requests.get(url, timeout=10)
         data = response.json()
         
@@ -36,7 +35,6 @@ def get_content():
             surah = data['data'][0]['surah']['englishName']
             nomor = data['data'][0]['numberInSurah']
             
-            # Menyusun pesan dengan format rapi
             pesan = (
                 f"{prefix}\n\n"
                 f"<i>{arab}</i>\n\n"
@@ -44,7 +42,6 @@ def get_content():
                 f"📌 <b>QS. {surah} [{nomor}]</b>\n\n"
                 f"📡 <b>Channel:</b> t.me/autoposting_quran\n"
                 f"🌐 <b>Page:</b> fb.com/RuntimeIman\n\n"
-                f"💻 <b>Account:</b> mastodon.social/@poster_pengingat\n\n"
                 f"#AlQuran #SelfReminder #DailyVerse #RuntimeIman #MHDWarrior"
             )
             return pesan
@@ -55,13 +52,12 @@ def get_content():
 if __name__ == "__main__":
     print("\033[92m[ MHD VIRTUAL WARRIOR ONLINE ]\033[0m")
     
-    # Ambil konten ayat
     ayat = get_content()
     
     if ayat:
-        # KIRIM KE MAKE.COM
+
         try:
-            # Gunakan header JSON agar Make.com membaca datanya
+            
             headers = {'Content-Type': 'application/json'}
             payload = {"text": ayat}
             
