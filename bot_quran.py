@@ -21,7 +21,7 @@ def get_content():
             url = f"https://api.alquran.cloud/v1/ayah/18:{ayat_id}/editions/quran-uthmani,id.indonesian"
             prefix = "📖 <b>[ JUMAT BERKAH - AL-KAHFI ]</b>"
         else:
-            # Mode Biasa: Ayat Acak dari seluruh Al-Quran
+            # Mode Biasa: Ayatnya Diacak Dari Seluruh Al-quran
             ayat_id = random.randint(1, 6236)
             url = f"https://api.alquran.cloud/v1/ayah/{ayat_id}/editions/quran-uthmani,id.indonesian"
             prefix = "📖 <b>[ MHD DAILY QURAN ]</b>"
